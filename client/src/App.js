@@ -1,0 +1,283 @@
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import GoogleMapReact from "google-map-react";
+import {
+  Form,
+  Row,
+  Col,
+  Button,
+  Container,
+  FormControl,
+  InputGroup,
+  Image,
+  Table
+} from "react-bootstrap";
+import homeSweetHome from "./assets/homesweethomeLOGO.png";
+const axios = require("axios");
+
+class App extends Component {
+  state = {
+    data: null,
+    ip: "",
+    user: "Your",
+    postData: null,
+    searchTerm: null
+  };
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  async componentDidMount() {
+    try {
+      const response = await axios.get("/api");
+      //console.log("👉 Returned data:", response);
+      this.setState({ data: response.data, postData: null });
+    } catch (e) {
+      //console.log(`😱 Axios request failed: ${e}`);
+    }
+  }
+
+  handleSubmitNew = async e => {
+    e.preventDefault();
+    let domain = e.target.elements.domain.value;
+    this.setState({ searchTerm: domain });
+    //console.log(domain);
+    try {
+      const response = await axios.post("/api", {
+        body: domain
+      });
+      //console.log("👉👉 POST Returned data:", response);
+      this.setState({ data: null, postData: response.data });
+    } catch (e) {
+      //console.log(`😱 Axios request failed: ${e}`);
+      this.setState({ searchTerm: null });
+    }
+
+    document.getElementById("domainSearch").reset();
+  };
+
+  /*
+  onSubmit = async e => {
+    e.preventDefault();
+    const response = await fetch("/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.post })
+    });
+    const body = await response.text();
+
+    this.setState({ responseToPost: body });
+  };*/
+
+  render() {
+    var response = this.state.data;
+    var user = this.state.user;
+    var postData = this.state.postData;
+    var searchedTerm = this.state.searchTerm;
+    return (
+      <div>
+        <Container>
+          <Row className="mt-1 justify-content-center">
+            <Image className="home-sweet-logo" src={homeSweetHome}></Image>
+          </Row>
+
+          <Row className="mt-4"></Row>
+          <Row className="mt-4 justify-content-center">
+            <Col>
+              <h4 style={{ textAlign: "center" }}>
+                Find the location data of any domain or IP address!
+              </h4>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col>
+              <Container className="mt-3 mb-3">
+                <Row className="justify-content-center">
+                  <Col xs={11} md={6}>
+                    <Form id="domainSearch" onSubmit={this.handleSubmitNew}>
+                      <Form.Text className="text-muted none">
+                        <strong>example: </strong>"google.com" or
+                        "172.217.164.174"
+                      </Form.Text>
+                      <InputGroup className="mt-1 mb-3">
+                        <FormControl
+                          name="domain"
+                          placeholder="domain or IP address"
+                          aria-label="domain or IP address"
+                          onChange={this.onChange}
+                        />
+
+                        <InputGroup.Append>
+                          <Button
+                            className="input-group-btn stock-search-button"
+                            type="submit"
+                          >
+                            Search
+                          </Button>
+                        </InputGroup.Append>
+                      </InputGroup>
+                      <Form.Text className="text-muted">
+                        Enter 172.217.164.174 in your browser's search bar to be
+                        taken to Google.com
+                      </Form.Text>
+                    </Form>
+                  </Col>
+                </Row>
+              </Container>
+            </Col>
+          </Row>
+          <Container>
+            {/* Table 
+            Test Area  
+            */}
+
+            <div>
+              {response ? (
+                <div>
+                  <Row className="mt-4 justify-content-center">
+                    <Col>
+                      <h3 className="center-align-text ">
+                        {user + " IP address is " + response.data.ip}
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row className=" mt-3 justify-content-center">
+                    <Col md={9}>
+                      <Table
+                        variant="dark"
+                        className="paper-shadow-class stock-table-background"
+                        aria-label="simple table"
+                      >
+                        <tbody>
+                          <tr className="stock-table-row">
+                            <td>{"City"}</td>
+                            <td>{response.data.city}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td>{"State"}</td>
+                            <td>{response.data.region}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td className="hide-on-mobile">{"Country"}</td>
+                            <td>{response.data.country}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td>{"ZIP"}</td>
+                            <td>{response.data.postal}</td>
+                          </tr>
+                          <tr className="stock-table-row">
+                            <td>{"ISP"}</td>
+                            <td className="dont-break-out">
+                              {response.data.org}
+                            </td>
+                          </tr>
+                          <tr className="stock-table-row">
+                            <td>{"Host"}</td>
+                            <td className="dont-break-out">
+                              {response.data.hostname}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </Col>
+                  </Row>
+                </div>
+              ) : null}
+            </div>
+
+            {/* RESPONSEEEEEEEEEEEEEEE 
+            Test Area  
+            */}
+
+            <div>
+              {postData ? (
+                <div>
+                  <Row className="mt-4 justify-content-center">
+                    <Col>
+                      <h3 className="center-align-text ">
+                        {"The IP address for " +
+                          searchedTerm +
+                          " is " +
+                          postData.data.query}
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row className="mt-3 justify-content-center">
+                    <Col md={9}>
+                      <Table
+                        variant="dark"
+                        className="paper-shadow-class stock-table-background"
+                        aria-label="simple table"
+                      >
+                        <tbody>
+                          <tr className="stock-table-row">
+                            <td>{"City"}</td>
+                            <td>{postData.data.city}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td>{"State"}</td>
+                            <td>{postData.data.regionName}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td>{"Country"}</td>
+                            <td>{postData.data.country}</td>
+                          </tr>
+
+                          <tr className="stock-table-row">
+                            <td>{"ZIP"}</td>
+                            <td>{postData.data.zip}</td>
+                          </tr>
+                          <tr className="stock-table-row">
+                            <td>{"ISP"}</td>
+                            <td className="dont-break-out">
+                              {postData.data.isp}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </Col>
+                  </Row>
+                </div>
+              ) : null}
+            </div>
+
+            <Row className="mt-4 justify-content-center">
+              <div style={{ height: "300px", width: "300px" }}>
+                <GoogleMapReact
+                  bootstrapURLKeys={{
+                    key: "AIzaSyBoKZ8LKI-VoH78W_QI_LsaIcu70eLZ6Gg"
+                  }}
+                  defaultCenter={{
+                    lat: 59.955413,
+                    lng: 30.337844
+                  }}
+                  defaultZoom={11}
+                ></GoogleMapReact>
+              </div>
+            </Row>
+          </Container>
+        </Container>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+/* 
+ <AnyReactComponent
+                  lat={59.955413}
+                  lng={30.337844}
+                  text="My Marker"
+                />
+                */

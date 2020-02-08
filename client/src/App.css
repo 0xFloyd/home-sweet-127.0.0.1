@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "DIN Web", sans-serif;
+  overflow-x: hidden;
+  background-color: #282c35;
+  color: rgb(255, 167, 196);
+  height: 100%;
+  position: relative;
+}
+
+.none {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.right-align-text {
+  text-align: right !important;
+}
+
+.center-align-text {
+  text-align: center !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.home-sweet-logo {
+  margin-top: 50px;
+  max-width: 250px;
+  height: auto;
+}
+
+td {
+  color: rgb(255, 167, 196);
+}
+
+.pink-text {
+  color: rgb(255, 167, 196);
+}
+
+.stock-search-button {
+  border-radius: 4px;
+  background-color: rgb(255, 167, 196);
+  border: 0px solid rgb(255, 167, 196);
+}
+
+.stock-search-button:hover {
+  border-radius: 4px;
+  background-color: rgb(250, 196, 214);
+  border: 0px solid rgb(250, 196, 214);
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.paper-shadow-class {
+  box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+}
+
+.stock-table-header {
+  background-color: #282c35 !important;
+}
+
+.stock-table-row {
+  background-color: #282c35 !important;
+}
+
+.stock-table-row:hover {
+  background-color: #282c35a4 !important;
+}
+
+.dont-break-out {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+}
+
+/* // Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .mobile-break {
+    display: none;
+  }
+
+  .home-sweet-logo {
+    margin-top: 50px;
+    max-width: 375px;
+    height: auto;
+  }
+}
+
+/* // Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .mobile-break {
+    display: none;
+  }
+}
+
+/* // Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .mobile-break {
+    display: none;
+  }
+}
