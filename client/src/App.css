@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 100px;
   font-family: "DIN Web", sans-serif;
   overflow-x: hidden;
   background-color: #282c35;

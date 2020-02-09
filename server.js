@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
@@ -7,6 +8,7 @@ const router = express.Router();
 const fetch = require("node-fetch");
 const FastSpeedtest = require("fast-speedtest-api");
 
+console.log(process.env.REACT_APP_MAPS_API_KEY);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
@@ -22,16 +24,6 @@ app.use(function(req, res, next) {
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
-let speedtest = new FastSpeedtest({
-  token: "MpdSJtwvxRNr7X6eCGAItUcWLIU", // required
-  verbose: false, // default: false
-  timeout: 10000, // default: 5000
-  https: true, // default: true
-  urlCount: 5, // default: 5
-  bufferSize: 8, // default: 8
-  unit: FastSpeedtest.UNITS.Mbps // default: Bps
 });
 
 app.get("/api", (req, res) => {

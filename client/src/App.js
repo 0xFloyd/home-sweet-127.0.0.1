@@ -15,6 +15,7 @@ import {
   Table
 } from "react-bootstrap";
 import homeSweetHome from "./assets/homesweethomeLOGO.png";
+require("dotenv").config();
 const axios = require("axios");
 
 class App extends Component {
@@ -33,7 +34,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const response = await axios.get("/api");
-      //console.log("👉 Returned data:", response);
+      console.log("👉 Returned data:", response);
       this.setState({ data: response.data, postData: null });
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
@@ -43,13 +44,13 @@ class App extends Component {
   handleSubmitNew = async e => {
     e.preventDefault();
     let domain = e.target.elements.domain.value;
-    this.setState({ searchTerm: domain });
+    this.setState({ searchTerm: domain, data: null, postData: null });
     //console.log(domain);
     try {
       const response = await axios.post("/api", {
         body: domain
       });
-      //console.log("👉👉 POST Returned data:", response);
+      console.log("👉👉 POST Returned data:", response);
       this.setState({ data: null, postData: response.data });
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
@@ -79,6 +80,7 @@ class App extends Component {
     var user = this.state.user;
     var postData = this.state.postData;
     var searchedTerm = this.state.searchTerm;
+    console.log(process.env.REACT_APP_MAPS_API_KEY);
     return (
       <div>
         <Container>
@@ -192,6 +194,27 @@ class App extends Component {
                 </div>
               ) : null}
             </div>
+            {response ? (
+              <Row className="mt-4 justify-content-center">
+                <div style={{ height: "300px", width: "300px" }}>
+                  <GoogleMapReact
+                    bootstrapURLKeys={{
+                      key: process.env.REACT_APP_MAPS_API_KEY
+                    }}
+                    defaultCenter={{
+                      lat: Number(
+                        response.data.loc.substr(
+                          0,
+                          response.data.loc.indexOf(",")
+                        )
+                      ),
+                      lng: Number(response.data.loc.split(",")[1])
+                    }}
+                    defaultZoom={11}
+                  ></GoogleMapReact>
+                </div>
+              </Row>
+            ) : null}
 
             {/* RESPONSEEEEEEEEEEEEEEE 
             Test Area  
@@ -249,22 +272,23 @@ class App extends Component {
                   </Row>
                 </div>
               ) : null}
+              {postData ? (
+                <Row className="mt-4 justify-content-center">
+                  <div style={{ height: "300px", width: "300px" }}>
+                    <GoogleMapReact
+                      bootstrapURLKeys={{
+                        key: process.env.REACT_APP_MAPS_API_KEY
+                      }}
+                      defaultCenter={{
+                        lat: postData.data.lat,
+                        lng: postData.data.lon
+                      }}
+                      defaultZoom={11}
+                    ></GoogleMapReact>
+                  </div>
+                </Row>
+              ) : null}
             </div>
-
-            <Row className="mt-4 justify-content-center">
-              <div style={{ height: "300px", width: "300px" }}>
-                <GoogleMapReact
-                  bootstrapURLKeys={{
-                    key: "AIzaSyBoKZ8LKI-VoH78W_QI_LsaIcu70eLZ6Gg"
-                  }}
-                  defaultCenter={{
-                    lat: 59.955413,
-                    lng: 30.337844
-                  }}
-                  defaultZoom={11}
-                ></GoogleMapReact>
-              </div>
-            </Row>
           </Container>
         </Container>
       </div>
