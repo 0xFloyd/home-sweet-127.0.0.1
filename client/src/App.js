@@ -18,6 +18,15 @@ import homeSweetHome from "./assets/homesweethomeLOGO.png";
 require("dotenv").config();
 const axios = require("axios");
 
+const AnyReactComponent = ({ text }) => (
+  <div className="marker-div">
+    <span className="marker-div-text">
+      ⬅️
+      {text}
+    </span>
+  </div>
+);
+
 class App extends Component {
   state = {
     data: null,
@@ -196,7 +205,7 @@ class App extends Component {
             </div>
             {response ? (
               <Row className="mt-4 justify-content-center">
-                <div style={{ height: "300px", width: "300px" }}>
+                <div style={{ height: "50vh", width: "100%" }}>
                   <GoogleMapReact
                     bootstrapURLKeys={{
                       key: process.env.REACT_APP_MAPS_API_KEY
@@ -211,7 +220,18 @@ class App extends Component {
                       lng: Number(response.data.loc.split(",")[1])
                     }}
                     defaultZoom={11}
-                  ></GoogleMapReact>
+                  >
+                    <AnyReactComponent
+                      lat={Number(
+                        response.data.loc.substr(
+                          0,
+                          response.data.loc.indexOf(",")
+                        )
+                      )}
+                      lng={Number(response.data.loc.split(",")[1])}
+                      text={response.data.ip}
+                    />
+                  </GoogleMapReact>
                 </div>
               </Row>
             ) : null}
@@ -284,7 +304,13 @@ class App extends Component {
                         lng: postData.data.lon
                       }}
                       defaultZoom={11}
-                    ></GoogleMapReact>
+                    >
+                      <AnyReactComponent
+                        lat={postData.data.lat}
+                        lng={postData.data.lon}
+                        text={postData.data.query}
+                      />
+                    </GoogleMapReact>
                   </div>
                 </Row>
               ) : null}

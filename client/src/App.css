@@ -105,6 +105,14 @@ td {
   hyphens: auto;
 }
 
+.marker-div-text {
+  border-radius: 4px;
+  padding: 3px;
+  background-color: rgb(40, 44, 53, 0.7);
+  color: white;
+  font-size: 16px;
+}
+
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 }
