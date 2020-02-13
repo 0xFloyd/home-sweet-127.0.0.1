@@ -11,7 +11,9 @@ import {
   FormControl,
   InputGroup,
   Image,
-  Table
+  Table,
+  Nav,
+  Navbar
 } from "react-bootstrap";
 import homeSweetHome from "./assets/homesweethomeLOGO.png";
 require("dotenv").config();
@@ -67,21 +69,6 @@ class App extends Component {
 
     document.getElementById("domainSearch").reset();
   };
-
-  /*
-  onSubmit = async e => {
-    e.preventDefault();
-    const response = await fetch("/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ post: this.state.post })
-    });
-    const body = await response.text();
-
-    this.setState({ responseToPost: body });
-  };*/
 
   render() {
     var response = this.state.data;
@@ -293,7 +280,7 @@ class App extends Component {
               ) : null}
               {postData ? (
                 <Row className="mt-4 justify-content-center">
-                  <div style={{ height: "300px", width: "300px" }}>
+                  <div style={{ height: "50vh", width: "100%" }}>
                     <GoogleMapReact
                       bootstrapURLKeys={{
                         key: process.env.REACT_APP_MAPS_API_KEY
@@ -316,6 +303,15 @@ class App extends Component {
             </div>
           </Container>
         </Container>
+        <footer className="main-app-footer hide-on-mobile">
+          <Navbar className="footer-bg justify-content-center">
+            <Nav className="justify-content-around">
+              <Nav.Link className="pink-text" href="https://ryanfloyd.io">
+                Project by Ryan Floyd
+              </Nav.Link>
+            </Nav>
+          </Navbar>
+        </footer>
       </div>
     );
   }

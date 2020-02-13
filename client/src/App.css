@@ -113,6 +113,26 @@ td {
   font-size: 16px;
 }
 
+.main-app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.footer-bg {
+  background-color: #282c35;
+}
+
+.pink-text {
+  color: rgb(255, 167, 196) !important;
+}
+
+.pink-text:hover {
+  color: rgb(250, 196, 214) !important;
+}
+
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 }
