@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import GoogleMapReact from "google-map-react";
@@ -20,7 +19,7 @@ const axios = require("axios");
 
 const AnyReactComponent = ({ text }) => (
   <div className="marker-div">
-    <span className="marker-div-text">
+    <span role="img" aria-label="map-marker" className="marker-div-text">
       ⬅️
       {text}
     </span>
@@ -43,7 +42,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const response = await axios.get("/api");
-      console.log("👉 Returned data:", response);
+      //console.log("👉 Returned data:", response);
       this.setState({ data: response.data, postData: null });
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
@@ -59,7 +58,7 @@ class App extends Component {
       const response = await axios.post("/api", {
         body: domain
       });
-      console.log("👉👉 POST Returned data:", response);
+      //console.log("👉👉 POST Returned data:", response);
       this.setState({ data: null, postData: response.data });
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
