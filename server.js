@@ -6,7 +6,7 @@ const axios = require("axios");
 const app = express();
 const router = express.Router();
 const fetch = require("node-fetch");
-const FastSpeedtest = require("fast-speedtest-api");
+const requestIp = require("request-ip");
 
 //console.log(process.env.REACT_APP_MAPS_API_KEY);
 app.use(express.json());
@@ -26,8 +26,12 @@ app.get("/", function(req, res) {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
+let ipInfoToken = process.env.ipinfoToken;
+
 app.get("/api", (req, res) => {
-  let url = `https://ipinfo.io?token=ade0fe87e638cf`;
+  const clientIp = requestIp.getClientIp(req);
+  console.log(clientIp);
+  let url = `https://ipinfo.io/${clientIp}?token=${ipInfoToken}`;
   fetch(url)
     .then(res => res.json())
     .then(data => {

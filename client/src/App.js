@@ -75,7 +75,7 @@ class App extends Component {
     var user = this.state.user;
     var postData = this.state.postData;
     var searchedTerm = this.state.searchTerm;
-    console.log(process.env.REACT_APP_MAPS_API_KEY);
+    console.log("hey");
     return (
       <div>
         <Container>
