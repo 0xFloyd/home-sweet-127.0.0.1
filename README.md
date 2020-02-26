@@ -37,7 +37,7 @@ REACT_APP_MAPS_API_KEY="YOUR_API_KEY"
 ipinfoToken="YOUR_API_KEY"
 ```
 
-To deploy locally
+To deploy locally and run server and client with concurrently:
 
 ```javascript
 npm run dev
