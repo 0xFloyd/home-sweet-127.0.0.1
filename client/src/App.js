@@ -75,7 +75,7 @@ class App extends Component {
     var user = this.state.user;
     var postData = this.state.postData;
     var searchedTerm = this.state.searchTerm;
-    console.log("hey");
+
     return (
       <div>
         <Container>

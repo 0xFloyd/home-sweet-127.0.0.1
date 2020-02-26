@@ -8,7 +8,6 @@ const router = express.Router();
 const fetch = require("node-fetch");
 const requestIp = require("request-ip");
 
-//console.log(process.env.REACT_APP_MAPS_API_KEY);
 app.use(express.json());
 app.use(express.static("client/build"));
 app.use(cors());
@@ -40,15 +39,6 @@ app.get("/api", (req, res) => {
     .catch(err => {
       res.send(err);
     });
-  /*
-  speedtest
-    .getSpeed()
-    .then(s => {
-      console.log(`Speed: ${s} Mbps`);
-    })
-    .catch(e => {
-      console.error(e.message);
-    });*/
 });
 
 app.post("/api", (req, res) => {
@@ -65,12 +55,5 @@ app.post("/api", (req, res) => {
     });
 });
 
-/*
-app.post("/api", (req, res) => {
-  console.log(req.body);
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`
-  );
-});*/
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
