@@ -34,7 +34,8 @@ class App extends Component {
     ip: "",
     user: "Your",
     postData: null,
-    searchTerm: null
+    searchTerm: null,
+    failedRequest: null
   };
 
   onChange = e => {
@@ -45,7 +46,10 @@ class App extends Component {
     try {
       const response = await axios.get("/api");
       //console.log("👉 Returned data:", response);
-      this.setState({ data: response.data, postData: null });
+      this.setState({
+        data: response.data,
+        postData: null
+      });
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
     }
@@ -54,14 +58,32 @@ class App extends Component {
   handleSubmitNew = async e => {
     e.preventDefault();
     let domain = e.target.elements.domain.value;
-    this.setState({ searchTerm: domain, data: null, postData: null });
+    this.setState({
+      searchTerm: domain,
+      data: null,
+      postData: null,
+      failedRequest: null
+    });
     //console.log(domain);
     try {
       const response = await axios.post("/api", {
         body: domain
       });
-      //console.log("👉👉 POST Returned data:", response);
-      this.setState({ data: null, postData: response.data });
+      console.log("👉👉 POST Returned data:", response);
+      if (response.data.data.status === "fail") {
+        this.setState({
+          searchTerm: null,
+          data: null,
+          postData: null,
+          failedRequest: "Request Failed"
+        });
+      } else {
+        this.setState({
+          data: null,
+          postData: response.data,
+          failedRequest: null
+        });
+      }
     } catch (e) {
       //console.log(`😱 Axios request failed: ${e}`);
       this.setState({ searchTerm: null });
@@ -75,6 +97,7 @@ class App extends Component {
     var user = this.state.user;
     var postData = this.state.postData;
     var searchedTerm = this.state.searchTerm;
+    let { failedRequest } = this.state;
 
     return (
       <div>
@@ -189,6 +212,7 @@ class App extends Component {
                 </div>
               ) : null}
             </div>
+
             {response ? (
               <Row className="mt-4 justify-content-center">
                 <div style={{ height: "50vh", width: "100%" }}>
@@ -221,11 +245,15 @@ class App extends Component {
                 </div>
               </Row>
             ) : null}
-
-            {/* RESPONSEEEEEEEEEEEEEEE 
-            Test Area  
-            */}
-
+            <div>
+              {failedRequest ? (
+                <div>
+                  <Row className="mt-4 justify-content-center">
+                    <h3>Request Failed, please try again</h3>
+                  </Row>
+                </div>
+              ) : null}
+            </div>
             <div>
               {postData ? (
                 <div>
@@ -320,9 +348,5 @@ class App extends Component {
 export default App;
 
 /* 
- <AnyReactComponent
-                  lat={59.955413}
-                  lng={30.337844}
-                  text="My Marker"
-                />
+  
                 */

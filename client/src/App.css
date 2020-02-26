@@ -59,6 +59,26 @@ td {
   background-color: rgb(250, 196, 214);
   border: 0px solid rgb(250, 196, 214);
 }
+.stock-search-button:focus {
+  border-radius: 4px;
+  background-color: rgb(250, 196, 214);
+  border: 0px solid rgb(250, 196, 214);
+}
+.stock-search-button:visited {
+  border-radius: 4px;
+  background-color: rgb(250, 196, 214);
+  border: 0px solid rgb(250, 196, 214);
+}
+.stock-search-button:active {
+  border-radius: 4px;
+  background-color: rgb(250, 196, 214);
+  border: 0px solid rgb(250, 196, 214);
+}
+.stock-search-button:disabled {
+  border-radius: 4px;
+  background-color: rgb(250, 196, 214);
+  border: 0px solid rgb(250, 196, 214);
+}
 
 .App-header {
   background-color: #282c34;
