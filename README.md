@@ -17,7 +17,7 @@ I've always thought tools like speedtest.net that return your specific network i
 
 ## Technology
 
-> <img src="/client/src/assets/react.svg" width="40px"> <img src="/client/src/assets/react-bootstrap.png" width="40px"> <img src="/client/src/assets/node.svg" width="40px"> <img src="/client/src/assets/express.svg" width="40px"> <img src="/client/src/assets/heroku.svg" width="40px"> <img src="/client/src/assets/git.svg" width="40px"> <img src="/client/src/assets/maps.png" width="40px">
+> <img src="/client/src/assets/js.svg" width="40px"> <img src="/client/src/assets/react.svg" width="40px"> <img src="/client/src/assets/react-bootstrap.png" width="40px"> <img src="/client/src/assets/node.svg" width="40px"> <img src="/client/src/assets/express.svg" width="40px"> <img src="/client/src/assets/heroku.svg" width="40px"> <img src="/client/src/assets/git.svg" width="40px"> <img src="/client/src/assets/maps.png" width="40px">
 
 - React and JavaScript on the frontend
 - Styled with React-Bootstrap
@@ -27,6 +27,21 @@ I've always thought tools like speedtest.net that return your specific network i
 - IPInfo.io and GoogleMaps APIs for data
 - Hosted on Heroku
 - Git and Github for version control
+
+## Usage
+
+Clone the repository and create a .env file in the project root and add in your api keys from IPinfo.io and GoogleMapsAPI
+
+```text
+REACT_APP_MAPS_API_KEY="YOUR_API_KEY"
+ipinfoToken="YOUR_API_KEY"
+```
+
+To deploy locally
+
+```javascript
+npm run dev
+```
 
 ## License
 
