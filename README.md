@@ -2,7 +2,7 @@
 
 127.0.0.1 Sweet 127.0.0.1 is a tastefully simple app for getting the domain or IP address if any website you can imagine, using ipinfo.io and googlemaps api's
 
-![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/home-sweet-home-desktop.png)
+![alt text](/client/src/assets/home-sweet-home-desktop.png)
 
 ## Motivation
 
