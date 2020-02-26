@@ -2,7 +2,7 @@
 
 127.0.0.1 Sweet 127.0.0.1 is a tastefully simple app for getting the domain or IP address if any website you can imagine, using ipinfo.io and googlemaps api's
 
-<img src="src/assets/home-sweet-home-desktop.png" alt="home sweet home" width="600">
+![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/home-sweet-home-desktop.png)
 
 ## Motivation
 
@@ -17,7 +17,7 @@ I've always thought tools like speedtest.net that return your specific network i
 
 ## Technology
 
-> <img src="src/assets/react.svg" width="40px"> <img src="src/assets/react-bootstrap.png" width="40px"> <img src="src/assets/node.svg" width="40px"> <img src="src/assets/js.svg" width="40px"> <img src="src/assets/ex.svg" width="40px"> <img src="src/assets/ex.svg" width="40px"> <img src="src/assets/heroku.svg" width="40px"> <img src="src/assets/maps.png" width="40px">
+> ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/react.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/react-bootstrap.png) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/node.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/js.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/ex.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/ex.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/heroku.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/maps.png)
 
 - React and JavaScript on the frontend
 - Styled with React-Bootstrap
