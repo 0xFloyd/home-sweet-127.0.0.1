@@ -17,7 +17,7 @@ I've always thought tools like speedtest.net that return your specific network i
 
 ## Technology
 
-> <img src="/client/src/assets/js.svg" width="40px"> ![alt text](/client/src/assets/react-bootstrap.png) ![alt text](/client/src/assets/node.svg) ![alt text](/client/src/assets/js.svg) ![alt text](/client/src/assets/ex.svg) ![alt text](/client/src/assets/ex.svg) ![alt text](/client/src/assets/heroku.svg) ![alt text](/client/src/assets/maps.png)
+> <img src="/client/src/assets/react.svg" width="40px"> <img src="/client/src/assets/react-bootstrap.png" width="40px"> <img src="/client/src/assets/node.svg" width="40px"> <img src="/client/src/assets/express.svg" width="40px"> <img src="/client/src/assets/heroku.svg" width="40px"> <img src="/client/src/assets/git.svg" width="40px"> <img src="/client/src/assets/maps.png" width="40px">
 
 - React and JavaScript on the frontend
 - Styled with React-Bootstrap
