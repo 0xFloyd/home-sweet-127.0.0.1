@@ -1,4 +1,4 @@
-# 127.0.0.1 Sweet 127.0.0.1
+# 127.0.0.1 Sweet 127.0.0.1 [![Build Status](https://travis-ci.com/MrRyanFloyd/home-sweet-127.0.0.1.svg?branch=master)](https://travis-ci.com/MrRyanFloyd/home-sweet-127.0.0.1)
 
 127.0.0.1 Sweet 127.0.0.1 _(a play on 127.0.0.1, localhost)_ is a tastefully simple app for getting the domain or IP address if any website you can imagine, using ipinfo.io and googlemaps api's
 
@@ -17,7 +17,7 @@ I've always thought tools like speedtest.net that return your specific network i
 
 ## Technology
 
-> <img src="/client/src/assets/js.svg" width="40px"> <img src="/client/src/assets/react.svg" width="40px"> <img src="/client/src/assets/react-bootstrap.png" width="40px"> <img src="/client/src/assets/node.svg" width="40px"> <img src="/client/src/assets/express.svg" width="40px"> <img src="/client/src/assets/heroku.svg" width="40px"> <img src="/client/src/assets/git.svg" width="40px"> <img src="/client/src/assets/maps.png" width="40px">
+> <img src="/client/src/assets/js.svg" width="40px"> <img src="/client/src/assets/react.svg" width="40px"> <img src="/client/src/assets/react-bootstrap.png" width="40px"> <img src="/client/src/assets/node.svg" width="40px"> <img src="/client/src/assets/express.svg" width="40px"> <img src="/client/src/assets/heroku.svg" width="40px"> <img src="/client/src/assets/git.svg" width="40px"> <img src="/client/src/assets/travis-ci.svg" width="40px"> <img src="/client/src/assets/maps.png" width="40px">
 
 - React and JavaScript on the frontend
 - Styled with React-Bootstrap
@@ -25,8 +25,9 @@ I've always thought tools like speedtest.net that return your specific network i
 - Express for the server
 - Axios for promise-based requests to external APIs
 - IPInfo.io and GoogleMaps APIs for data
-- Hosted on Heroku
+- Hosted with Heroku
 - Git and Github for version control
+- Travis for continuous integration
 
 ## Usage
 
