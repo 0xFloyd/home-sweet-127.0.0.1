@@ -1,4 +1,4 @@
-# 127.0.0.1 Sweet 127.0.0.1
+<img src="/client/src/assets/homesweethomeLOGO.png" width="80px">
 
 127.0.0.1 Sweet 127.0.0.1 is a tastefully simple app for getting the domain or IP address if any website you can imagine, using ipinfo.io and googlemaps api's
 
