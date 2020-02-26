@@ -17,7 +17,7 @@ I've always thought tools like speedtest.net that return your specific network i
 
 ## Technology
 
-> ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/react.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/react-bootstrap.png) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/node.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/js.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/ex.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/ex.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/heroku.svg) ![alt text](https://github.com/MrRyanFloyd/home-sweet-127.0.0.1/tree/master/client/src/assets/maps.png)
+> ![alt text](/client/src/assets/react.svg) ![alt text](/client/src/assets/react-bootstrap.png) ![alt text](/client/src/assets/node.svg) ![alt text](/client/src/assets/js.svg) ![alt text](/client/src/assets/ex.svg) ![alt text](/client/src/assets/ex.svg) ![alt text](/client/src/assets/heroku.svg) ![alt text](/client/src/assets/maps.png)
 
 - React and JavaScript on the frontend
 - Styled with React-Bootstrap
