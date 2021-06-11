@@ -1,6 +1,6 @@
 # 127.0.0.1 Sweet 127.0.0.1 [![Build Status](https://travis-ci.com/MrRyanFloyd/home-sweet-127.0.0.1.svg?branch=master)](https://travis-ci.com/MrRyanFloyd/home-sweet-127.0.0.1)
 
-127.0.0.1 Sweet 127.0.0.1 _(a play on 127.0.0.1, localhost)_ is a tastefully simple app for getting the domain or IP address of any website you can imagine, using ipinfo.io and googlemaps api's. Live version: [https://home-sweet-home-ip.herokuapp.com](https://home-sweet-home-ip.herokuapp.com/)
+127.0.0.1 Sweet 127.0.0.1 _(a play on 127.0.0.1, localhost)_ is a tastefully simple app for getting the domain or IP address of any website you can imagine, using ipinfo.io and googlemaps api's. 
 
 ![alt text](/client/src/assets/home-sweet-home-desktop.png)
 
